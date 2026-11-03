@@ -2,6 +2,16 @@
 
 Read this before changing the interface. This is a project-specific design brief, not a downloaded theme.
 
+## Current landing flow ? November 3
+
+The [location-first revision](docs/landing-flow-20261103.md) supersedes the older
+homepage tile layout below. Preserve the location search and map. The library
+beneath them has three tabs: California resources (default), Guides & tools, and
+Communities. Use compact link rows, keep statewide and local applicability clear,
+and retain all five branch names and scopes. Downloads follow location selection
+or the Guides & tools path. About is in the footer. Existing city-page map, resource
+controls and downloads remain owned by their existing templates.
+
 ## Job and audience
 
 Help someone with limited time take a concrete household or administrative step.
@@ -188,3 +198,8 @@ Guide links lead to the online pages and need internet. Download actions are con
 copy on the homepage, one PNG/HTML area on the resource page, and one download on the separate offline chooser.
 Change location is the single result-page location control; tool dialogs use their one Close control. Checked
 local contacts appear once above the shared statewide support chart, with actual service distinctions preserved.
+
+
+## Disaster map choices - November 3, 2026
+
+Show all fifteen disaster plans as directly accessible symbol buttons, with Everyday in the same grid. Use original 24-unit line drawings from the existing icon set, muted individual accents and short visible labels; retain full accessible names. Icons are navigation cues, not official warning signs. Keep all choices visible, wrap into rows instead of a scrolling strip, and preserve a 44px minimum tap area. Use one selected checkmark, pressed state, a strong bottom border and a clear focus outline; color alone does not carry state. Each symbol replaces the preceding map layer and opens its concise plan in place. Source facts, currentness rules and offline exclusions stay unchanged. This follows Philip's explicit preference; it does not claim a measured audience or safety outcome.

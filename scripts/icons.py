@@ -1,6 +1,21 @@
 """Original inline line icons. Text labels carry the accessible names."""
 
 GLYPHS = {
+ 'resource-hospital': '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 6v8m-4-4h8M9 21v-4h6v4"/>',
+ 'resource-clinic': '<path d="M5 3v6a4 4 0 0 0 8 0V3M4 3h2m6 0h2M9 13v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="3"/>',
+ 'resource-food': '<path d="M4 3v6m3-6v6m3-6v6M4 7h6M7 9v12M19 21V3c-4 2-5 6-5 9h5"/>',
+ 'resource-support': '<path d="m3 10 9-7 9 7M5 9v12h14V9M12 13v4"/><circle cx="12" cy="10" r=".7"/>',
+ 'resource-housing': '<path d="m3 10 9-7 9 7M5 9v12h5M15 21h4V9M12 12v9m-3-3 3 3 3-3"/>',
+ 'resource-homeless-shelter': '<path d="M3 5v16m18-10v10M3 17h18M3 9h6v8m0-6h9a3 3 0 0 1 3 3v3"/><circle cx="6" cy="13" r="1.5"/>',
+ 'resource-shelter': '<path d="m3 21 9-18 9 18H3ZM7 21l5-11 5 11M12 3V1M2 21h20"/>',
+ 'resource-library': '<path d="M12 5C8 3 5 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-3-1-6-1-10 1ZM12 5v16M5 8h4m6 0h4M5 12h4m6 0h4"/>',
+ 'resource-senior-disability': '<circle cx="12" cy="4" r="2"/><path d="M10 8v7h7l3 6M10 11h7M8 11a6 6 0 1 0 7 9M19 21h3"/>',
+ 'resource-transport': '<rect x="5" y="3" width="14" height="17" rx="3"/><path d="M5 12h14M12 3v9M7 20v2m10-2v2"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/>',
+ 'resource-utility': '<path d="M4 3h13v6M4 3v18l3-2 3 2 3-2M7 7h6M7 11h3m9-4-6 9h5l-1 6 6-9h-5l1-6Z"/>',
+ 'resource-supplies': '<path d="m3 7 9-4 9 4v13H3V7ZM3 7l9 4 9-4M12 11v9M9 5l9 4M6 15h3"/>',
+ 'resource-legal': '<path d="M12 3v18M6 21h12M4 6h16M6 6l-4 8h8L6 6Zm12 0-4 8h8l-4-8ZM2 14a4 4 0 0 0 8 0m4 0a4 4 0 0 0 8 0"/>',
+ 'resource-cooling': '<circle cx="12" cy="12" r="2"/><path d="M10 10C3 8 5 2 9 3c4 0 3 4 3 7m2 1c6-4 10 1 7 4-2 3-5 1-8-1m-2 0c0 7-6 8-7 4-2-3 2-5 6-5"/>',
+ 'resource-warming': '<path d="m3 9 9-6 9 6M5 9v12h14V9M9 18c-3-3 3-3 0-6m6 6c-3-3 3-3 0-6"/>',
  'wifi': '<path d="M3 8.5a14 14 0 0 1 18 0M6 12a9.5 9.5 0 0 1 12 0M9 15.5a4.5 4.5 0 0 1 6 0"/><circle cx="12" cy="19" r=".8"/>',
  'wrench': '<path d="M14 4a6 6 0 0 0-7.5 7.5L3 15a3 3 0 0 0 4 4l3.5-3.5A6 6 0 0 0 18 8l-4 4-3-3 4-4Z"/>',
  'bolt': '<path d="m13 2-9 12h7l-1 8 10-13h-7l1-7Z"/>',
@@ -31,6 +46,21 @@ GLYPHS = {
  'copy': '<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V3H3v13h5"/>',
  'check': '<path d="m4 12 5 5L20 6"/>',
  'reset': '<path d="M3 10a9 9 0 1 1 1 8M3 4v6h6"/>',
+ 'earthquake': '<path d="m3 10 9-7 9 7M5 9v10h5l-2-4 5-3-1 5 3 4h4V9M3 22h5m8 0h5"/>',
+ 'tsunami': '<path d="M3 19c3-2 4 2 7 0s4 2 7 0 3 0 4 1M3 15c7 1 5-10 12-10a6 6 0 0 1 6 6c-3-3-7-1-7 2 0 2 2 3 4 2"/>',
+ 'flood': '<path d="m5 10 7-6 7 6M7 9v6m10-6v6M3 16c3-2 3 2 6 0s3 2 6 0 3 2 6 0M3 21c3-2 3 2 6 0s3 2 6 0 3 2 6 0"/>',
+ 'wildfire': '<path d="M13 2c1 5-5 6-3 10 2 0 4-2 4-4 3 3 6 5 6 8a8 8 0 0 1-16 0c0-4 3-6 4-7-1 4 1 5 2 5"/><path d="M12 15c-2 2-3 3-3 4a3 3 0 0 0 6 0c0-1-1-2-3-4Z"/>',
+ 'heat': '<path d="M8 5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0V5ZM10 9v9M17 2v2m5 3-2 1m2 6-2-1"/><path d="M16 7a4 4 0 0 1 0 8"/>',
+ 'cold': '<path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9 4l3 3 3-3M9 20l3-3 3 3M4 10l4-1-1-4m13 9-4 1 1 4M4 14l4 1-1 4m13-9-4-1 1-4"/>',
+ 'storms': '<path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h5a3 3 0 1 1-3 3"/>',
+ 'coastal': '<path d="M3 18c3-2 3 2 6 0s3 2 6 0 3 2 6 0M3 22c3-2 3 2 6 0s3 2 6 0 3 2 6 0M5 13V3m-3 3 3-3 3 3M11 13l4-4 6 4M15 9V5"/>',
+ 'landslide': '<path d="M3 3h5l4 9 9 9H3M5 7l2 4-2 3M15 3l3 1 1 3-3 1-2-2 1-3ZM18 12l3 1-1 3-3-1 1-3Z"/>',
+ 'drought': '<circle cx="18" cy="6" r="3"/><path d="M3 13h18M3 21h18M11 13l-2 4 4 1-1 3M9 17H5l-2 2m10-1 4-3 4 2M3 5h5m-3-2v4"/>',
+ 'dam': '<path d="M3 8c2-2 3 2 6 0M3 13c2-2 3 2 6 0M3 18c2-2 3 2 6 0M10 3h5l3 18H9l1-18ZM12 7h2m-2 4h3m-3 4h3M19 18l2 3"/>',
+ 'levee': '<path d="M3 10c2-2 3 2 6 0M3 15c2-2 3 2 6 0M3 21h18M9 21l4-16h4l4 16M13 5h4M14 10h3"/>',
+ 'avalanche': '<path d="m3 21 9-17 9 17H3ZM9 10l3 2 3-2M8 15l3 1 1 3-3 1-2-2 1-3Zm8-1 2 1M5 5l1-2m13 4 2-1"/>',
+ 'subsidence': '<path d="M3 8h5m8 0h5M8 8l2 5h4l2-5M3 21h18M4 16h3m10 0h3M12 2v6m-2-2 2 2 2-2"/>',
+ 'volcano': '<path d="m3 21 6-12h6l6 12H3ZM9 9l3 3 3-3M12 5V2M7 6 4 3m13 3 3-3M10 17l2-2 2 3"/>',
 }
 
 CATEGORY = dict(zip(

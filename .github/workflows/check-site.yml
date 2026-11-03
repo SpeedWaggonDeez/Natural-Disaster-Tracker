@@ -42,7 +42,11 @@ jobs:
             sleep 1
           done
           npm run verify:responsive
+          npm run verify:recommendations
           npm run verify:maps
+          npm run verify:services
+          npm run verify:statewide
+          npm run verify:booklet
           npm run verify:disasters
       - name: Save preview checks
         if: always()
