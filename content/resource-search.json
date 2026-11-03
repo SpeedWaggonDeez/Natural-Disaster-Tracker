@@ -206,6 +206,18 @@
       "access": "Public website link; no bulk reuse assumed",
       "evidenceURL": "https://egateway.fema.gov/ESF6/DRCLocator",
       "verification": "FEMA links to this application portal. Automated direct access returned 403; no application submitted."
+    },
+    "sf-water-hygiene": {
+      "title": "SF public drinking water and restrooms",
+      "url": "https://www.sfpuc.gov/learning/how-you-can-help/free-drinktap-drinking-water-and-restroom-map",
+      "description": "Locate outdoor refill stations and public restrooms in San Francisco. Check posted access and water advisories.",
+      "coverage": "San Francisco; use the local 211 directory for other areas",
+      "checked": "2026-11-03",
+      "published": null,
+      "use": "Publisher locator; dated public points also appear on the map",
+      "access": "Public website; DataSF dataset published under PDDL",
+      "evidenceURL": "https://data.sf.gov/City-Infrastructure/San-Francisco-Public-Bathrooms-and-Water-Fountains/wfq4-upmv",
+      "verification": "Publisher purpose and dataset inspected; individual fixtures are not checked for current operation."
     }
   },
   "groups": [
@@ -225,6 +237,14 @@
         "feeding-america",
         "cdss-food",
         "hud"
+      ]
+    },
+    {
+      "id": "water",
+      "title": "Water & hygiene",
+      "sources": [
+        "sf-water-hygiene",
+        "211"
       ]
     },
     {

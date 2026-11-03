@@ -92,6 +92,10 @@ def compile_references():
     for key, record in physical['sources'].items():
         source(record, 'maps', 'Physical service: ' + key, 'content/physical-services.json', physical['checked'])
     statewide = read('content/statewide-service-manifest.json')
+    everyday = read('content/everyday-service-manifest.json')
+    for key, record in everyday['sources'].items():
+        source(record, 'maps', 'Everyday physical directory: ' + key,
+               'content/everyday-service-manifest.json', everyday['checked'])
     for key, record in statewide['sources'].items():
         source(record, 'maps', 'Statewide service directory: ' + key,
                'content/statewide-service-manifest.json', statewide['checked'])
@@ -173,6 +177,7 @@ def compile_references():
     for path, group in [('content/map-data-manifest.json', 'maps'),
                         ('content/physical-service-manifest.json', 'maps'),
                         ('content/statewide-service-manifest.json', 'maps'),
+                        ('content/everyday-service-manifest.json', 'maps'),
                         ('content/disaster-source-manifest.json', 'disasters'),
                         ('assets/fonts/provenance.json', 'assets'),
                         ('assets/photos/provenance.json', 'assets'),

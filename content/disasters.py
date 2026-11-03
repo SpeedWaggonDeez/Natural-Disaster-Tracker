@@ -34,6 +34,19 @@ LAYERS = {
  'seismic-landslide': geo('CGS earthquake-landslide investigation zones', CGS+'CGS_Landslide_Zones/FeatureServer/0', '#b38955',
    published='2025-11-19', source='https://www.conservation.ca.gov/cgs/shma', offline=False,
    note='Earthquake-induced landslide investigation zones only. Does not cover every rainfall landslide or debris flow. Individual map dates and evaluation coverage vary.', credit=CGS_CREDIT),
+ 'faults': {'kind':'tiles','title':'CGS mapped fault lines (approximate)',
+   'service':'https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer',
+   'tileUrl':'https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/tile/{z}/{y}/{x}',
+   'maxNativeZoom':13,'bounds':[[32.3,-126.4],[42.1,-114.3]],
+   'source':'https://maps.conservation.ca.gov/cgs/fam/',
+   'published':'2010','checked':'2026-11-03','live':False,'offline':False,
+   'color':'#202020','opacity':0.85,'zIndex':201,
+   'legend':[{'label':'Fault activity: Historic','color':'#ff0000'},
+     {'label':'Holocene','color':'#ff8000'},{'label':'Late Quaternary','color':'#80ff00'},
+     {'label':'Quaternary','color':'#bf80ff'}],
+   'credit':'California Geological Survey, 2010 Fault Activity Map of California; C.W. Jennings and W.A. Bryant.',
+   'tileDescription':'Fault lines follow the map across California. Zoom out to see regional faults; a blank local area does not establish safety.',
+   'note':'Quaternary fault traces from the 2010 statewide map. Colored bands show the source activity-age classes, not current earthquake severity or hazard-zone width. Line styles retain source location certainty. Approximate planning reference, not parcel boundaries or an earthquake prediction. Zooming beyond the source resolution enlarges the same map. Open the official map for classifications.'},
  'fire-sra': geo('CAL FIRE state-area wildfire severity', FIRE+'FHSZSRA_23_3/FeatureServer/0', '#b44c37',
    fields='OBJECTID,FHSZ,FHSZ_Description', published='2024-04-01',
    source='https://osfm.fire.ca.gov/what-we-do/community-wildfire-preparedness-and-mitigation/fire-hazard-severity-zones',
@@ -100,8 +113,8 @@ PLANS = [
    ('After','Expect aftershocks. Keep clear of damaged buildings and fallen utility lines.'),
    ('Find help','Check local instructions before travelling. Listed hospitals and shelters may have limited access.')],
    'https://www.cdc.gov/earthquakes/safety/stay-safe-during-an-earthquake.html',
-   layers=['liquefaction','seismic-landslide'], shelters=True,resources=True,published='2026-08-21',
-   note='Shaded areas require seismic investigation; they do not predict this earthquake or certify buildings. Hospitals and FEMA shelters are response resources, not safe zones.'),
+   layers=['liquefaction','seismic-landslide','faults'], shelters=True,resources=True,published='2026-08-21',
+   note='Fault lines and their colored activity-age bands are approximate, not an earthquake prediction. Zoom out to see nearby regional faults. Investigation-zone shading does not certify buildings. Hospitals and FEMA shelters are response resources, not safe zones.'),
  plan('tsunami','Tsunami','At the coast: move inland or to higher ground.',[
    ('Recognize','Strong or long shaking, unusual ocean movement or a loud ocean roar can be natural warnings.'),
    ('Move','After shaking stops, follow posted evacuation signs inland or uphill. Do not wait for an official warning after natural signs.'),
@@ -199,12 +212,13 @@ PUBLISHER_CATEGORIES = {'earthquake':'Earthquake','tsunami':'Tsunami',
 for p in PLANS:
     p['publisherCategory'] = PUBLISHER_CATEGORIES[p['id']]
 for key, source in LAYERS.items():
-    source['publisher'] = {'flood':'FEMA','liquefaction':'CGS','seismic-landslide':'CGS',
+    source['publisher'] = {'flood':'FEMA','liquefaction':'CGS','seismic-landslide':'CGS','faults':'CGS',
         'fire-sra':'CAL FIRE','fire-lra':'CAL FIRE','sea-level':'NOAA OCM',
         'subsidence':'DWR / TRE ALTAMIRA','dam':'Cal OES','levee':'Cal OES',
         'volcano':'Cal OES / USGS','cold-alerts':'NOAA / NWS','storm-alerts':'NOAA / NWS',
         'avalanche-alerts':'NOAA / NWS','drought':'NOAA / CPC','heat':'NOAA / NWS'}[key]
-    source['dateMeaning'] = ('Northern California remap announcement; individual source vintages vary' if key=='sea-level' else
+    source['dateMeaning'] = ('map edition; individual source mapping dates vary' if key=='faults' else
+        'Northern California remap announcement; individual source vintages vary' if key=='sea-level' else
         'effective date' if key=='fire-sra' else
         'last statewide recommendation rollout' if key=='fire-lra' else
         'service edit date; individual source vintages can differ' if source.get('published') else

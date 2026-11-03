@@ -12,7 +12,7 @@ function collection(ids,extra={}){return {type:'FeatureCollection',features:ids.
  assert.equal(data.plans.length,15);assert.equal(new Set(data.plans.map(p=>p.id)).size,15);
  assert(data.plans.every(p=>p.steps.length===3&&p.guidance.url.startsWith('https://')&&(p.id==='tsunami'||p.layers.length)));
  assert(data.plans.every(p=>p.layers.every(id=>data.layers[id])));
- for(const s of Object.values(data.layers))assert(/^(https:\/\/)(hazards\.fema\.gov|services[12]?\.arcgis\.com|mapservices\.weather\.noaa\.gov|coast\.noaa\.gov)\//.test(s.service));
+ for(const s of Object.values(data.layers))assert(/^(https:\/\/)(hazards\.fema\.gov|services[12]?\.arcgis\.com|mapservices\.weather\.noaa\.gov|coast\.noaa\.gov|gis\.conservation\.ca\.gov|tiles\.arcgis\.com)\//.test(s.service));
  const browser=await chromium.launch({executablePath:executable()}),findings=[];
  try{
   for(const width of [320,390,768,1440]){
@@ -22,11 +22,12 @@ function collection(ids,extra={}){return {type:'FeatureCollection',features:ids.
    assert.equal(await p.locator('[data-disaster] .atlas-choice-symbol svg').count(),15);
    assert(await p.locator('.atlas-choice-label').evaluateAll(els=>els.every(el=>{const text=el.firstChild;let offset=0;return el.textContent.split(/(\s+)/).every(word=>{const start=offset;offset+=word.length;if(!word.trim())return true;const range=document.createRange();range.setStart(text,start);range.setEnd(text,offset);return range.getClientRects().length===1;});})), 'Ordinary button labels must keep words intact at each width');
    for(const plan of data.plans){
-    await choose(p,plan.id);assert.equal(await p.locator('.atlas-controls button[aria-pressed="true"]').count(),1);assert.equal(await p.locator('[data-disaster="'+plan.id+'"]').getAttribute('aria-pressed'),'true');assert.equal(await p.locator('#resource-atlas').getAttribute('data-layer'),plan.id);assert.equal(await p.locator('.disaster-steps li').count(),3);assert((await p.locator('#atlas-action-plan h3').innerText()).includes(plan.label));
+    await choose(p,plan.id);assert.equal(await p.locator('.atlas-controls button[aria-pressed="true"]').count(),1);assert.equal(await p.locator('[data-disaster="'+plan.id+'"]').getAttribute('aria-pressed'),'true');assert.equal(await p.locator('#resource-atlas').getAttribute('data-layer'),plan.id);assert.equal(await p.locator('.disaster-steps li').count(),3);assert(!await p.locator('.atlas-plan-details').evaluate(e=>e.open));await p.locator('.atlas-plan-details > summary').click();assert((await p.locator('#atlas-action-plan h3').innerText()).includes(plan.label));await p.locator('.atlas-plan-details > summary').click();
     assert.equal(await p.locator('.atlas-pin.food,.atlas-pin.support').count(),0,'Disaster plans replace everyday places');
     assert.equal(await p.locator('#atlas-everyday').getAttribute('aria-pressed'),'false');
     if(plan.id==='heat'){assert.equal(await p.locator('.leaflet-disaster-planning-pane .leaflet-image-layer').count(),1);assert((await p.locator('#atlas-layer-status').innerText()).includes('Forecast valid time'));}
     else if(plan.id==='coastal'){assert.equal(await p.locator('.leaflet-disaster-planning-pane .leaflet-image-layer').count(),1);assert((await p.locator('#atlas-layer-status').innerText()).includes('NOAA planning image'));}
+    else if(plan.id==='earthquake'){assert.equal(await p.locator('.disaster-faults').count(),1);assert((await p.locator('.leaflet-disaster-planning-pane path').count())>0);assert((await p.locator('#atlas-layer-status').innerText()).includes('Fault lines'));assert((await p.locator('#atlas-hazard-legend').innerText()).includes('fault lines'));}
     else if(plan.id!=='tsunami'){assert((await p.locator('.leaflet-disaster-planning-pane path').count())>0,plan.id);assert.equal(await p.locator('.leaflet-disaster-planning-pane .leaflet-image-layer').count(),0);}
     assert(await p.locator('#resource-atlas,.atlas-controls,#resource-map-panel').evaluateAll(els=>els.every(el=>el.scrollWidth<=el.clientWidth+1&&el.scrollLeft===0)),plan.id+' must fit without sideways clipping');
    }
@@ -38,6 +39,7 @@ function collection(ids,extra={}){return {type:'FeatureCollection',features:ids.
    await p.locator('#phone-city').selectOption('38001',{force:true});await ready(p);assert.equal(await p.locator('[data-disaster="flood"]').getAttribute('aria-pressed'),'true');assert.equal(new URL(p.url()).searchParams.get('hazard'),'flood');
    await p.locator('#phone-city').selectOption('57026',{force:true});await ready(p);
    const style=await p.addStyleTag({content:'.resource-atlas *{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important;}'});assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await style.evaluate(el=>el.remove());
+   await p.locator('.atlas-plan-details > summary').click();
    assert(await p.locator('.atlas-controls button,.disaster-guidance-link').evaluateAll(els=>els.every(el=>el.getBoundingClientRect().height>=44)));
    await p.locator('[data-disaster="flood"]').focus();assert(await p.locator('[data-disaster="flood"]').evaluate(el=>parseFloat(getComputedStyle(el).outlineWidth)>=3));
    if(width===390){await p.emulateMedia({forcedColors:'active'});assert(await p.locator('[data-disaster="flood"]').evaluate(el=>parseFloat(getComputedStyle(el).outlineWidth)>=3));await p.emulateMedia({forcedColors:'none'});}

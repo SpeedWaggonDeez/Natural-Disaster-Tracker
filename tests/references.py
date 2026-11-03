@@ -47,7 +47,7 @@ class References(unittest.TestCase):
         self.assertIn(data.TAXONOMY['url'], self.urls)
 
     def test_all_facility_contact_and_guide_sources_are_referenced(self):
-        for name in ('regions', 'resource-map', 'physical-services', 'statewide-service-manifest'):
+        for name in ('regions', 'resource-map', 'physical-services', 'statewide-service-manifest', 'everyday-service-manifest'):
             data = json.loads((ROOT / 'content' / (name + '.json')).read_text(encoding='utf-8'))
             for source in data['sources'].values():
                 self.assertIn(source['url'], self.urls)

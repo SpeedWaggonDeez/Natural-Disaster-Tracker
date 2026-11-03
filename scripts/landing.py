@@ -18,9 +18,9 @@ CALIFORNIA = [
 
 def landing_welcome():
     return '''<section class="home-welcome" data-location-routing aria-labelledby="welcome-title">
-      <div class="welcome-copy"><p class="welcome-eyebrow">Here for the everyday</p>
-        <h1 id="welcome-title">Everyday help,<br> close to home.</h1>
-        <p>Find local resources for you, your family and your community. Choose your California location to get started.</p>
+      <div class="welcome-copy">
+        <h1 id="welcome-title">Find resources<br> in your city.</h1>
+        <p>Ferdant helps you find resources for healthcare, housing, bills and other local needs. It also includes emergency contacts, disaster guides and downloads for offline use.</p>
       </div>
       <figure class="welcome-photos">
         <div class="welcome-photo-pair">
@@ -37,7 +37,7 @@ def landing_resources(branches, phones):
       <span class="state-resource-icon" aria-hidden="true">{icon(symbol)}</span>
       <span><strong>{title}</strong><span>{description}</span><small>{publisher} {icon('external')}</small></span>
     </a>''' for title, description, publisher, url, symbol in CALIFORNIA)
-    communities = ''.join(f'''<a class="community-resource" href="/{branch['slug']}/">
+    communities = ''.join(f'''<a class="community-resource" href="https://www.reddit.com/r/{branch['name']}/">
       {icon(CATEGORY[branch['slug']])}<span><strong>{branch['name']}</strong><span>{branch['description']}</span></span>{icon('right')}</a>''' for branch in branches)
     return f'''<section class="landing-library" aria-labelledby="library-title">
       <header class="library-heading"><h2 id="library-title">Useful across California</h2>

@@ -11,11 +11,12 @@
     "Census geocoding receipts include unsuccessful candidates; a query is not proof that a point was accepted or mapped."
   ],
   "inputSha256": {
-    ".github/workflows/check-site.yml": "35ddcd660b14c1967c43729446c3e388e6c4cb5a7db82c4489d6e2769d8fd8ef",
+    ".github/workflows/check-site.yml": "c407f4d90b648fffc5a087c8cbde4819fff58f3f539e668ee935538d1e0761b7",
     "DESIGN.md": "5c07a65e2ad3aa75afb9f3faf16eb14bce9e376fbca542ff21868deb4a0e84c9",
-    "README.md": "6e4fed0d8af5e7c8c3f8f78e8fd4b62a35ba9c309ca6266beb3d6a0861bac7a5",
+    "README.md": "b997f433890c1216eab7c1be7f6822ee1c395e6298c49abe8fd84343a54bf2a6",
     "assets/data/city-maps/BUILDINGS-LICENSE.txt": "1e4162322549351e6ce131d66c3c6c6cb56755db58e0475138e3f41cd94c4b3c",
     "assets/data/city-maps/README.md": "346247e7e378991bcd18e3602eb7ca91b08f38a71aa9f7ac232eab8877cd8bde",
+    "assets/data/everyday-maps/README.md": "7f0f956a461fc1b499e3ee052312e612a1f5f5c2d50e0a0c994d260b0b233fff",
     "assets/data/service-maps/01.json": "a9dbb9a1fc23cb91a1d93f3928ead17d0c633f94001cf79f8040b8384a2cb0f2",
     "assets/data/service-maps/02.json": "0db730ad1fe4f1b3196983fc2482af46893779e74ef51a5cd05204e6f733dd54",
     "assets/data/service-maps/03.json": "2d0a03c9235c7e33011e2cfc30a74e700b542ccd77bcb76d2ae311f400e4f9ec",
@@ -88,25 +89,31 @@
     "config/commerce.json": "1170fe3a9c9727e1827f0c35069369620e0db2b20c2261d7d83ba41c547f83b2",
     "content/california-cities.json": "3c7eed83b6103ba8df4fc2d2bd45cc961fa9bc011bf40d065f2e36279b9fcd86",
     "content/directory.py": "b6e9ac2cf636dca5f73cccabe699d63f345b107cf2a19e5a499d3786ee435cf9",
-    "content/disaster-source-manifest.json": "a0a50228930cd49cb304c4fa36296724f297246e1dffb0682c3aabf8ade0a7b4",
-    "content/disasters.py": "9d2b7b8786e51c6767bc68cec76c06bb01839a47322d3505a962db12105ae8c0",
+    "content/disaster-source-manifest.json": "269678370101851e075c2d62f21a0cad9c5d3a5b808f61afafda82cb32b24256",
+    "content/disasters.py": "201ad289d68def790f7ad83b086a51dbec35bf36766034696bcf6f6eaf7a1433",
     "content/emergency-alert-overrides.json": "50dba43e4ab76c17c5182d676f88ba81fc1691af647f3b72ac82b1b39d8030a9",
     "content/emergency-alerts.json": "7f65138b779eb1870a3bd5e6e454df39b07630686b47e481af12d60c17110b21",
+    "content/evacuation.json": "8df541625adae084a4a4a2dd1d83937332727842c26fbbb65a07ff3f762c04b8",
+    "content/everyday-service-manifest.json": "9a3c86a55eb3e85e53a9c4378ae0bfce489f0e3537ad3183a99d954f2eda2107",
     "content/map-data-manifest.json": "b779ca6ee472019ac8dd95ca5159a4be366e329236985d2d7ba7281ecad3cb08",
     "content/physical-service-manifest.json": "862e2398dd2ac064bb740f33b8c83e097cc59f9aa5ced5ebbdfae4c9718a1f16",
-    "content/physical-services.json": "3f7f0d9b2649cfb620c0f05c93dd84146d4f30d518adcccdd459e0bd1893ff2f",
+    "content/physical-services.json": "29a0f84ccdd4687dace5a0b470e9d2704f304f74445091af2d75148df561af9d",
     "content/regions.json": "1bec6513304e739e0bbddb5d00559b75528a6d01b3d7b14fc8303e065798364c",
     "content/resource-map.json": "a406445eb26c10e27198c7f4bd4236b8164526788fc578769951741a0ec18c36",
-    "content/resource-search.json": "7c1cf0f053fb4ce6b7582b521f86fd4a556e2f45af899bde7b989fcc52ac61ea",
+    "content/resource-search.json": "b35b2da456478c15433647d61266c6638c9e42659021a81fbc2f74147149425c",
     "content/resource_plans.py": "498d7fab24c35582c4ecbeced1e03a37a63ae79a570e64aff5614c94e84bb5ef",
     "content/site.py": "32ca917265308fe8b1eeae1d9c19d89ec97fe6c1ed9d6f9c40b440a2cab5dcbb",
     "content/statewide-service-manifest.json": "5b47cf9a5affe9fa0edbb5460b1edbe55803f4f1010510519cd2e25bbaea6c90",
-    "disaster-layers.js": "9d9dff47264b51dce36a820b93695e506e24f417b3cf9358ee370093f89732c5",
-    "docs/audience-and-funding-research-plan-20261103.md": "e627432f8295a61013286a8160403fadb272cf8b2d8c98659ca742363636b88c",
+    "disaster-layers.js": "ed9e95724430dcc47d1cdcb137fd14d3d5ec45ac4893d0f3d2661fe53215d916",
+    "docs/audience-and-funding-research-plan-20261103.md": "7f993897458c6344f4d24c3c99646c6bda408de16f45bc0baec52ea25e3146eb",
     "docs/comparable-websites-20261103.md": "9e29b7a9e190a788eaf91484370f3b6f15f42c96f56f6ca45e7c5dc995dc39c6",
-    "docs/disaster-maps.md": "9c0346dfed066b34d63e3c07a2448a6a5c2bdfaf7fe0f2695da06400e6d2d810",
+    "docs/disaster-maps.md": "96a60699db1d9152d27372cb44b958b544237cb82b0fe306d8d221c76e152902",
     "docs/emergency-alerts.md": "f1068c717b8fd2c2321e6efd282df91c6af20a8e55cbca7eb0fcd5faf200acbb",
+    "docs/evacuation-map-20261103.md": "d7132b11603e629c58d09106418c8e5b93cf73d9089c699cfe74199f48b5bb45",
+    "docs/evacuation-resources-20261103.md": "6a9a44f0dd4c50123517f5bac2dfcdb8637d9a13ece6cf80c2a4bb8f58ea0942",
+    "docs/everyday-map-expansion-20261103.md": "fc13e4d07752aebc6b574e2ec96f8da8acafe4867ccb847f48fdec8839c83d1e",
     "docs/landing-flow-20261103.md": "769d86ba3cf61e0b56467851b0a253ed140261d31d2563d1575b127e1f15d5cc",
+    "docs/outreach-buyers-and-income-findings-20261103.md": "2377d04566882beb6e10d362831c957e86ce8176b1dfe0eccc126639d55ae8f8",
     "docs/physical-services.md": "27302ec47f59878322120034f0fdb987bfc7a2499d632b8a6d2616b18afb221e",
     "docs/recommendations.md": "629a6e4997716de962faa8502a8ca6384b60db167a7625d1eb9f792bdd86ec03",
     "docs/resource-booklet.md": "72d38daff471cd86d3d9ad6fe03563905f04d9b76afa0127dad402944eebcfa9",
@@ -117,32 +124,34 @@
     "integrations/shopify.mjs": "06b43fa4f3c823fdb1372918e3ce881d4ec42d384e830697afbb66e08c12cf72",
     "landing.js": "9f5d4b58e93e901e16e6fcee4b187cdb0d5f7d3de467a9d411e03dd2a4c994fc",
     "package-lock.json": "bbc19435fd5d8c962d59d092526439044fb6d43aef8d20a175584a80c0752e63",
-    "phone.js": "74ab550f896dace1c24339601e9d682d5d9e84819cb2cd23839901ac85f0effe",
+    "phone.js": "d01c5de02e86c03119569de6a2033fb9615fa45e8109b936079cfb663dd87739",
     "recommendations.js": "a67656afcdcc388c6a1450fedde729f7d648a30ffc121c29b70a1e088357809a",
-    "resource-booklet.js": "ce25ff5c6c7d912e591cdb7b24d996f4570dec8b6cd4a09a167e4e11c4f28662",
-    "resource-map.js": "ff133984bc2cd7f7dc78eb7ec38749a896ff4a66d5fa5bed42906a3e77debb3f",
+    "resource-booklet.js": "377274b2fb0800701767c67b2ad833c9a2230bd559b639f41413314da91dc971",
+    "resource-map.js": "8c80008459150cdad275dc689d372ebe4fddf43db5bdf4d17f566c10269a1eda",
     "scripts/audit-disaster-sources.py": "01b2d7ce29709adac54390eea49b2f956dccaf27ca6cc8f22cd1d5a69badeb26",
-    "scripts/build.py": "b1746975fcbd0063ef647703878f788efd94baf5c3cf983f3d8cb774d3397f20",
+    "scripts/build.py": "21d30fa36a8e67fd81bf6835217036a60ee3d4154ed54f96b9a667f1e74815b5",
     "scripts/check-content.py": "912019aebb7a4ae61dfac2ec6772c1e1a30ffd15d1185bcb4412dc808f27e643",
     "scripts/cost_tool.py": "71f3ff17044114405286e328aabfec51bed9d6536fd357214648a4d48c45af69",
     "scripts/graphics.py": "5fc8aac8d4e418e5f575749505b3d4e679cb98d3afadcb68d231c020f85f1557",
-    "scripts/icons.py": "b7fb30861f1632fec46849daf60512c3918d0e78400e64a1bfaf714be4f5fabb",
+    "scripts/icons.py": "1bd04e25fa9377f22667316bbefaf1eac3a4daa0f52767b41d1a2d4072988aa2",
     "scripts/import-alert-links.py": "14fa1c157000de895f634327e7b94620830b33694ac0f604e505c168ef950a4a",
-    "scripts/landing.py": "012ca6a3835869e39ee0e76d9276e99fd58a46139840c7544e2049e01fc1ae85",
+    "scripts/import-evacuation-routes.py": "30865e3f3d3e51f5b587618153b1a66b7f1cf7f7296241d908836f1aee497807",
+    "scripts/landing.py": "a984c796cea30e59f327bc9b0f568407b057ca4c0ae949e6b4c801d3d093ebb1",
     "scripts/offline.py": "7926a5db1ececaeaf6c8b5ab0074b49f639a48891b1d9830cc4c2b341f0915b1",
     "scripts/phone_chart.py": "c148f7b8ec172183551a7bb3450413658b81f02289c493741a0e1b2d22509afd",
-    "scripts/physical_services.py": "93715e78b26539d7aa9c533b18e6bf5c292a4dfb821f6b1a3d5c3f986d65c707",
+    "scripts/physical_services.py": "57961a7a681ca0cb840de47c431d7acf02f9a04c0e9c5aceacfc6c952223da8f",
     "scripts/project-building-outlines.py": "c9b573683aa5449a45660ee7d296475f5489dbe7288c43b0f5e7c8fa1f048347",
+    "scripts/project-everyday-services.py": "497de5f704494b2f90c957c2917cfdf486d32ee5f87d20b592e449dbdc33887e",
     "scripts/project-statewide-services.py": "5610d54aee6d2e4a4c73f51b8381552c208f6967d82583248c23d1915bc87f37",
     "scripts/recommendations.py": "2d86fb2543d3a1303f921ee08b3396ce91ef8c5ed2319826fa5e6568a3011391",
-    "scripts/references.py": "0427ef184e44ec293ce5b79bf2daa1d9188792fd47ec817e7213458ae15b6cce",
+    "scripts/references.py": "a2cbea2565214d260f9429ef47aed5bddefab547df7f06e387854e00ea395c3e",
     "scripts/refresh-map-data.py": "37693b1b22f966735a4c01dfb77a2f48ad068a7e795d0b367b6cf82ac1cebdb9",
-    "scripts/resource_map.py": "bc37b37691f160f8415fff3dbf90b12938867b1150db607a9f5a8df32659765f",
+    "scripts/resource_map.py": "9e4303752a93036b7376020ce8597c49f490c9bdd52e907b216d3c819fe3d99b",
     "scripts/resource_search.py": "56232e5552bd336fc3f83ff7091da65919e936f5a35dcdacc4bdff9dc0ca7b0b",
     "scripts/widgets.py": "c108105199f616c2b486dbfc18eb57280904bdbcbc62bcb6038d486a6b9b94a3",
-    "service-resources.js": "d66dfac32fc43046ff27058a2ad32160cc1c6c702cce5c35e515d5142d4f3d25",
+    "service-resources.js": "efbaa68b9bb20649644f58e0f62b8e9776eb4eaa1267650af80b5b5fa05392ea",
     "site.js": "9fbad56eb918ca1acb66f9221a712f78ddd3a512358c1ca2f00778b68960a6b7",
-    "styles.css": "fcb06cbabdec726f5159f9978b20e217b034848019f44343ce8ea9d4787a027f"
+    "styles.css": "fb8d447ee4cc00f435fe798501a89f2ceaf77e6d90d77c36b106d47653d62f4c"
   },
   "references": [
     {
@@ -280,7 +289,9 @@
       ],
       "recordedIn": [
         "assets/data/city-maps/README.md",
+        "content/evacuation.json",
         "content/resource-map.json",
+        "docs/evacuation-resources-20261103.md",
         "scripts/refresh-map-data.py",
         "scripts/resource_map.py"
       ],
@@ -909,6 +920,56 @@
       ]
     },
     {
+      "title": "LA County DPH food distribution sites (May 2023 data)",
+      "url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/Food_Distribution_chp/FeatureServer/0",
+      "category": "maps",
+      "uses": [
+        "Everyday physical directory: la-food-distribution",
+        "content / sources / la-food-distribution"
+      ],
+      "recordedIn": [
+        "assets/data/everyday-maps/README.md",
+        "content/everyday-service-manifest.json",
+        "docs/everyday-map-expansion-20261103.md",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "title": "LA County DPH food distribution sites (May 2023 data)",
+          "url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/Food_Distribution_chp/FeatureServer/0",
+          "checked": "2026-11-03",
+          "published": "2023-05",
+          "note": "211LA food-distribution data published in Community Health Profiles. Older directory, not current provider verification. School/university/warehouse-name records excluded.",
+          "evidence": "https://www.arcgis.com/sharing/rest/content/items/dd4d0483c6104a19ba3217d054848ace?f=json"
+        }
+      ]
+    },
+    {
+      "title": "LA County DPH food distribution sites (May 2023 data) — evidence",
+      "url": "https://www.arcgis.com/sharing/rest/content/items/dd4d0483c6104a19ba3217d054848ace?f=json",
+      "category": "maps",
+      "uses": [
+        "Everyday physical directory: la-food-distribution",
+        "content / sources / la-food-distribution"
+      ],
+      "recordedIn": [
+        "assets/data/everyday-maps/README.md",
+        "content/everyday-service-manifest.json",
+        "docs/everyday-map-expansion-20261103.md",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "title": "LA County DPH food distribution sites (May 2023 data)",
+          "url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/Food_Distribution_chp/FeatureServer/0",
+          "checked": "2026-11-03",
+          "published": "2023-05",
+          "note": "211LA food-distribution data published in Community Health Profiles. Older directory, not current provider verification. School/university/warehouse-name records excluded.",
+          "evidence": "https://www.arcgis.com/sharing/rest/content/items/dd4d0483c6104a19ba3217d054848ace?f=json"
+        }
+      ]
+    },
+    {
       "title": "LSNC Woodland office",
       "url": "https://lsnc.net/office/woodland",
       "category": "maps",
@@ -1052,14 +1113,19 @@
       "category": "maps",
       "uses": [
         "Resource map: buildings",
-        "content / buildings / source"
+        "Everyday physical directory: osm-basic-needs",
+        "content / buildings / source",
+        "content / sources / osm-basic-needs"
       ],
       "recordedIn": [
         "assets/data/city-maps/README.md",
+        "assets/data/everyday-maps/README.md",
+        "content/everyday-service-manifest.json",
         "content/map-data-manifest.json",
         "content/resource-map.json",
         "resource-map.js",
         "scripts/project-building-outlines.py",
+        "scripts/project-everyday-services.py",
         "scripts/resource_map.py"
       ],
       "records": [
@@ -1072,6 +1138,14 @@
           "serviceEdited": "2022-04-13",
           "license": "https://opendatacommons.org/licenses/odbl/1-0/",
           "note": "Computer-generated outlines; source imagery dates are not supplied by this layer. The service data edit date is April 13, 2022. A highlight means the outline contains a directory point; it does not verify the building, entrance, accessibility, structural safety or current service. Unmatched and ambiguous locations keep pins. Extracted geometry is © Microsoft, ODbL 1.0."
+        },
+        {
+          "title": "© OpenStreetMap contributors — everyday public facilities",
+          "url": "https://www.openstreetmap.org/copyright",
+          "checked": "2026-11-03",
+          "license": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "note": "ODbL 1.0. Community-mapped, explicitly public/permissive access. No confirmed paid, conditional, private or inactive listings. Edit dates do not verify present operation. Separate downloadable derived database: /assets/data/everyday-maps/openstreetmap-projection.json",
+          "evidence": "https://wiki.openstreetmap.org/wiki/Tag:amenity=drinking_water"
         }
       ]
     },
@@ -1224,6 +1298,84 @@
           "access": "Public website link; no bulk reuse assumed",
           "evidenceURL": "https://www.usa.gov/help-with-utility-bills",
           "verification": "Public publisher page inspected; individual search results and provider availability not verified."
+        }
+      ]
+    },
+    {
+      "title": "SF public drinking water and restrooms",
+      "url": "https://www.sfpuc.gov/learning/how-you-can-help/free-drinktap-drinking-water-and-restroom-map",
+      "category": "maps",
+      "uses": [
+        "Additional resource search: sf-water-hygiene",
+        "Everyday physical directory: sf-basic-needs",
+        "content / sources / sf-basic-needs"
+      ],
+      "recordedIn": [
+        "assets/data/everyday-maps/README.md",
+        "content/everyday-service-manifest.json",
+        "content/resource-search.json",
+        "docs/everyday-map-expansion-20261103.md",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "title": "SF public drinking water and restrooms",
+          "url": "https://www.sfpuc.gov/learning/how-you-can-help/free-drinktap-drinking-water-and-restroom-map",
+          "description": "Locate outdoor refill stations and public restrooms in San Francisco. Check posted access and water advisories.",
+          "coverage": "San Francisco; use the local 211 directory for other areas",
+          "checked": "2026-11-03",
+          "published": null,
+          "use": "Publisher locator; dated public points also appear on the map",
+          "access": "Public website; DataSF dataset published under PDDL",
+          "evidenceURL": "https://data.sf.gov/City-Infrastructure/San-Francisco-Public-Bathrooms-and-Water-Fountains/wfq4-upmv",
+          "verification": "Publisher purpose and dataset inspected; individual fixtures are not checked for current operation."
+        },
+        {
+          "title": "SF public drinking-water and restroom directory",
+          "url": "https://data.sf.gov/City-Infrastructure/San-Francisco-Public-Bathrooms-and-Water-Fountains/wfq4-upmv",
+          "checked": "2026-11-03",
+          "note": "Publicly accessible human water points and restrooms only. Record dates are separate from November 1, 2026 ingestion; no live operational guarantee.",
+          "license": "PDDL",
+          "evidence": "https://www.sfpuc.gov/learning/how-you-can-help/free-drinktap-drinking-water-and-restroom-map"
+        }
+      ]
+    },
+    {
+      "title": "SF public drinking water and restrooms — evidenceURL",
+      "url": "https://data.sf.gov/City-Infrastructure/San-Francisco-Public-Bathrooms-and-Water-Fountains/wfq4-upmv",
+      "category": "maps",
+      "uses": [
+        "Additional resource search: sf-water-hygiene",
+        "Everyday physical directory: sf-basic-needs",
+        "content / sources / sf-basic-needs"
+      ],
+      "recordedIn": [
+        "assets/data/everyday-maps/README.md",
+        "content/everyday-service-manifest.json",
+        "content/resource-search.json",
+        "docs/everyday-map-expansion-20261103.md",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "title": "SF public drinking water and restrooms",
+          "url": "https://www.sfpuc.gov/learning/how-you-can-help/free-drinktap-drinking-water-and-restroom-map",
+          "description": "Locate outdoor refill stations and public restrooms in San Francisco. Check posted access and water advisories.",
+          "coverage": "San Francisco; use the local 211 directory for other areas",
+          "checked": "2026-11-03",
+          "published": null,
+          "use": "Publisher locator; dated public points also appear on the map",
+          "access": "Public website; DataSF dataset published under PDDL",
+          "evidenceURL": "https://data.sf.gov/City-Infrastructure/San-Francisco-Public-Bathrooms-and-Water-Fountains/wfq4-upmv",
+          "verification": "Publisher purpose and dataset inspected; individual fixtures are not checked for current operation."
+        },
+        {
+          "title": "SF public drinking-water and restroom directory",
+          "url": "https://data.sf.gov/City-Infrastructure/San-Francisco-Public-Bathrooms-and-Water-Fountains/wfq4-upmv",
+          "checked": "2026-11-03",
+          "note": "Publicly accessible human water points and restrooms only. Record dates are separate from November 1, 2026 ingestion; no live operational guarantee.",
+          "license": "PDDL",
+          "evidence": "https://www.sfpuc.gov/learning/how-you-can-help/free-drinktap-drinking-water-and-restroom-map"
         }
       ]
     },
@@ -1638,6 +1790,87 @@
       ]
     },
     {
+      "title": "content / inputReceipts / la-food.json — url",
+      "url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/Food_Distribution_chp/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson&resultRecordCount=2000",
+      "category": "maps",
+      "uses": [
+        "content / inputReceipts / la-food.json"
+      ],
+      "recordedIn": [
+        "content/everyday-service-manifest.json"
+      ],
+      "records": [
+        {
+          "bytes": 84853,
+          "sha256": "abf0dd0a99ce1f19d96b38f658c8bde96c14d2854b7d8b8cea611762bd1f2a5a",
+          "url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/arcgis/rest/services/Food_Distribution_chp/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson&resultRecordCount=2000",
+          "retrieved": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "title": "content / inputReceipts / osm-everyday.json — url",
+      "url": "https://overpass-api.de/api/interpreter",
+      "category": "maps",
+      "uses": [
+        "content / inputReceipts / osm-everyday.json"
+      ],
+      "recordedIn": [
+        "content/everyday-service-manifest.json",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "bytes": 2850678,
+          "sha256": "004e449c202e98c940ca66a1ae51ae2579d182df38d6f5e8a4177f1e2230a3eb",
+          "url": "https://overpass-api.de/api/interpreter",
+          "retrieved": "2026-11-03",
+          "method": "POST; query preserved in manifest",
+          "dataTimestamp": "2026-11-03T11:33:02Z"
+        }
+      ]
+    },
+    {
+      "title": "content / inputReceipts / sf-metadata.json — url",
+      "url": "https://data.sf.gov/api/views/wfq4-upmv.json",
+      "category": "maps",
+      "uses": [
+        "content / inputReceipts / sf-metadata.json"
+      ],
+      "recordedIn": [
+        "content/everyday-service-manifest.json",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "bytes": 39360,
+          "sha256": "645d42ff802e1760c22bb8a7116c76a9627d85d78ae44462eba76b800d60183f",
+          "url": "https://data.sf.gov/api/views/wfq4-upmv.json",
+          "retrieved": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "title": "content / inputReceipts / sf-water-restrooms.json — url",
+      "url": "https://data.sf.gov/resource/wfq4-upmv.json?$limit=5000",
+      "category": "maps",
+      "uses": [
+        "content / inputReceipts / sf-water-restrooms.json"
+      ],
+      "recordedIn": [
+        "content/everyday-service-manifest.json",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "bytes": 370004,
+          "sha256": "40d0fdb293a3600ca5272191dc7e6638a0b00100ff286e9ce356b16611312f6a",
+          "url": "https://data.sf.gov/resource/wfq4-upmv.json?$limit=5000",
+          "retrieved": "2026-11-03"
+        }
+      ]
+    },
+    {
       "title": "content / knownClosureSources — url",
       "url": "https://www.lapl.org/branches/palisades",
       "category": "maps",
@@ -1730,6 +1963,56 @@
           "url": "https://services2.arcgis.com/zr3KAIbsRSUyARHG/arcgis/rest/services/CA_Tsunami_Hazard_Area/FeatureServer/0/query?f=geojson&outSR=4326&geometryPrecision=5&resultRecordCount=1000&resultOffset=0&where=Evacuate+%3D+%27Yes%2C+Tsunami+Hazard+Area%27&outFields=County%2CLabel&maxAllowableOffset=5e-05&orderByFields=OBJECTID",
           "sha256": "c5e03181ead7c7e3daeaab764849efa21a013de0234c36373092edf0c8be5099",
           "count": 20
+        }
+      ]
+    },
+    {
+      "title": "© OpenStreetMap contributors — everyday public facilities",
+      "url": "https://www.openstreetmap.org/copyright",
+      "category": "maps",
+      "uses": [
+        "Everyday physical directory: osm-basic-needs",
+        "content / sources / osm-basic-needs"
+      ],
+      "recordedIn": [
+        "content/everyday-service-manifest.json",
+        "docs/everyday-map-expansion-20261103.md",
+        "resource-map.js",
+        "scripts/project-everyday-services.py",
+        "scripts/resource_map.py"
+      ],
+      "records": [
+        {
+          "title": "© OpenStreetMap contributors — everyday public facilities",
+          "url": "https://www.openstreetmap.org/copyright",
+          "checked": "2026-11-03",
+          "license": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "note": "ODbL 1.0. Community-mapped, explicitly public/permissive access. No confirmed paid, conditional, private or inactive listings. Edit dates do not verify present operation. Separate downloadable derived database: /assets/data/everyday-maps/openstreetmap-projection.json",
+          "evidence": "https://wiki.openstreetmap.org/wiki/Tag:amenity=drinking_water"
+        }
+      ]
+    },
+    {
+      "title": "© OpenStreetMap contributors — everyday public facilities — evidence",
+      "url": "https://wiki.openstreetmap.org/wiki/Tag:amenity=drinking_water",
+      "category": "maps",
+      "uses": [
+        "Everyday physical directory: osm-basic-needs",
+        "content / sources / osm-basic-needs"
+      ],
+      "recordedIn": [
+        "content/everyday-service-manifest.json",
+        "docs/everyday-map-expansion-20261103.md",
+        "scripts/project-everyday-services.py"
+      ],
+      "records": [
+        {
+          "title": "© OpenStreetMap contributors — everyday public facilities",
+          "url": "https://www.openstreetmap.org/copyright",
+          "checked": "2026-11-03",
+          "license": "https://opendatacommons.org/licenses/odbl/1-0/",
+          "note": "ODbL 1.0. Community-mapped, explicitly public/permissive access. No confirmed paid, conditional, private or inactive listings. Edit dates do not verify present operation. Separate downloadable derived database: /assets/data/everyday-maps/openstreetmap-projection.json",
+          "evidence": "https://wiki.openstreetmap.org/wiki/Tag:amenity=drinking_water"
         }
       ]
     },
@@ -9644,6 +9927,207 @@
       ]
     },
     {
+      "title": "CGS mapped fault lines (approximate)",
+      "url": "https://maps.conservation.ca.gov/cgs/fam/",
+      "category": "disasters",
+      "uses": [
+        "Hazard overlay: faults"
+      ],
+      "recordedIn": [
+        "content/disasters.py",
+        "docs/disaster-maps.md"
+      ],
+      "records": [
+        {
+          "kind": "tiles",
+          "title": "CGS mapped fault lines (approximate)",
+          "service": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer",
+          "tileUrl": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/tile/{z}/{y}/{x}",
+          "maxNativeZoom": 13,
+          "bounds": [
+            [
+              32.3,
+              -126.4
+            ],
+            [
+              42.1,
+              -114.3
+            ]
+          ],
+          "source": "https://maps.conservation.ca.gov/cgs/fam/",
+          "published": "2010",
+          "checked": "2026-11-03",
+          "live": false,
+          "offline": false,
+          "color": "#202020",
+          "opacity": 0.85,
+          "zIndex": 201,
+          "legend": [
+            {
+              "label": "Fault activity: Historic",
+              "color": "#ff0000"
+            },
+            {
+              "label": "Holocene",
+              "color": "#ff8000"
+            },
+            {
+              "label": "Late Quaternary",
+              "color": "#80ff00"
+            },
+            {
+              "label": "Quaternary",
+              "color": "#bf80ff"
+            }
+          ],
+          "credit": "California Geological Survey, 2010 Fault Activity Map of California; C.W. Jennings and W.A. Bryant.",
+          "tileDescription": "Fault lines follow the map across California. Zoom out to see regional faults; a blank local area does not establish safety.",
+          "note": "Quaternary fault traces from the 2010 statewide map. Colored bands show the source activity-age classes, not current earthquake severity or hazard-zone width. Line styles retain source location certainty. Approximate planning reference, not parcel boundaries or an earthquake prediction. Zooming beyond the source resolution enlarges the same map. Open the official map for classifications.",
+          "publisher": "CGS",
+          "dateMeaning": "map edition; individual source mapping dates vary"
+        }
+      ]
+    },
+    {
+      "title": "CGS mapped fault lines (approximate) — service",
+      "url": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer",
+      "category": "disasters",
+      "uses": [
+        "Hazard overlay: faults",
+        "content / metadata"
+      ],
+      "recordedIn": [
+        "content/disaster-source-manifest.json",
+        "content/disasters.py",
+        "docs/disaster-maps.md"
+      ],
+      "records": [
+        {
+          "kind": "tiles",
+          "title": "CGS mapped fault lines (approximate)",
+          "service": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer",
+          "tileUrl": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/tile/{z}/{y}/{x}",
+          "maxNativeZoom": 13,
+          "bounds": [
+            [
+              32.3,
+              -126.4
+            ],
+            [
+              42.1,
+              -114.3
+            ]
+          ],
+          "source": "https://maps.conservation.ca.gov/cgs/fam/",
+          "published": "2010",
+          "checked": "2026-11-03",
+          "live": false,
+          "offline": false,
+          "color": "#202020",
+          "opacity": 0.85,
+          "zIndex": 201,
+          "legend": [
+            {
+              "label": "Fault activity: Historic",
+              "color": "#ff0000"
+            },
+            {
+              "label": "Holocene",
+              "color": "#ff8000"
+            },
+            {
+              "label": "Late Quaternary",
+              "color": "#80ff00"
+            },
+            {
+              "label": "Quaternary",
+              "color": "#bf80ff"
+            }
+          ],
+          "credit": "California Geological Survey, 2010 Fault Activity Map of California; C.W. Jennings and W.A. Bryant.",
+          "tileDescription": "Fault lines follow the map across California. Zoom out to see regional faults; a blank local area does not establish safety.",
+          "note": "Quaternary fault traces from the 2010 statewide map. Colored bands show the source activity-age classes, not current earthquake severity or hazard-zone width. Line styles retain source location certainty. Approximate planning reference, not parcel boundaries or an earthquake prediction. Zooming beyond the source resolution enlarges the same map. Open the official map for classifications.",
+          "publisher": "CGS",
+          "dateMeaning": "map edition; individual source mapping dates vary"
+        },
+        {
+          "url": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer",
+          "sha256": "9361c6d870375d89b2a7f48247d6431e7113ce1295c7a5897bf41bd362488c86",
+          "bytes": 5296,
+          "name": "QuatFaults_Tiles",
+          "checkedLocalDate": "2026-11-03",
+          "retrievedUTC": "2026-11-03T11:54:14.986097+00:00",
+          "published": "2010",
+          "dateMeaning": "Map edition; tile publication date not supplied",
+          "capabilities": "Map,TilesOnly",
+          "tileSize": 256,
+          "maxNativeZoom": 13,
+          "exportTilesAllowed": false
+        }
+      ]
+    },
+    {
+      "title": "CGS mapped fault lines (approximate) — tileUrl",
+      "url": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/tile/{z}/{y}/{x}",
+      "category": "disasters",
+      "uses": [
+        "Hazard overlay: faults"
+      ],
+      "recordedIn": [
+        "content/disasters.py"
+      ],
+      "records": [
+        {
+          "kind": "tiles",
+          "title": "CGS mapped fault lines (approximate)",
+          "service": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer",
+          "tileUrl": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/tile/{z}/{y}/{x}",
+          "maxNativeZoom": 13,
+          "bounds": [
+            [
+              32.3,
+              -126.4
+            ],
+            [
+              42.1,
+              -114.3
+            ]
+          ],
+          "source": "https://maps.conservation.ca.gov/cgs/fam/",
+          "published": "2010",
+          "checked": "2026-11-03",
+          "live": false,
+          "offline": false,
+          "color": "#202020",
+          "opacity": 0.85,
+          "zIndex": 201,
+          "legend": [
+            {
+              "label": "Fault activity: Historic",
+              "color": "#ff0000"
+            },
+            {
+              "label": "Holocene",
+              "color": "#ff8000"
+            },
+            {
+              "label": "Late Quaternary",
+              "color": "#80ff00"
+            },
+            {
+              "label": "Quaternary",
+              "color": "#bf80ff"
+            }
+          ],
+          "credit": "California Geological Survey, 2010 Fault Activity Map of California; C.W. Jennings and W.A. Bryant.",
+          "tileDescription": "Fault lines follow the map across California. Zoom out to see regional faults; a blank local area does not establish safety.",
+          "note": "Quaternary fault traces from the 2010 statewide map. Colored bands show the source activity-age classes, not current earthquake severity or hazard-zone width. Line styles retain source location certainty. Approximate planning reference, not parcel boundaries or an earthquake prediction. Zooming beyond the source resolution enlarges the same map. Open the official map for classifications.",
+          "publisher": "CGS",
+          "dateMeaning": "map edition; individual source mapping dates vary"
+        }
+      ]
+    },
+    {
       "title": "Cal OES / USGS volcanic planning areas — service",
       "url": "https://services.arcgis.com/BLN4oKB0N1YSgvY8/arcgis/rest/services/Volcanic_Hazard_Zones/FeatureServer/25",
       "category": "disasters",
@@ -10002,7 +10486,7 @@
           "url": "https://www.cdc.gov/earthquakes/safety/stay-safe-during-an-earthquake.html",
           "published": "2026-08-21",
           "checked": "2026-11-02",
-          "note": "Shaded areas require seismic investigation; they do not predict this earthquake or certify buildings. Hospitals and FEMA shelters are response resources, not safe zones."
+          "note": "Fault lines and their colored activity-age bands are approximate, not an earthquake prediction. Zoom out to see nearby regional faults. Investigation-zone shading does not certify buildings. Hospitals and FEMA shelters are response resources, not safe zones."
         }
       ]
     },
@@ -10649,7 +11133,9 @@
         "Wildfire"
       ],
       "recordedIn": [
-        "content/disasters.py"
+        "content/disasters.py",
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
       ],
       "records": [
         {
@@ -10678,6 +11164,108 @@
           "published": null,
           "checked": "2026-11-02",
           "note": "This is an issued-alert layer, not every weather hazard or a complete street-level forecast."
+        }
+      ]
+    },
+    {
+      "title": "content / metadata — url",
+      "url": "https://gis.conservation.ca.gov/server/rest/services/CGS/FaultActivityMapCA/MapServer",
+      "category": "disasters",
+      "uses": [
+        "content / metadata"
+      ],
+      "recordedIn": [
+        "content/disaster-source-manifest.json"
+      ],
+      "records": [
+        {
+          "url": "https://gis.conservation.ca.gov/server/rest/services/CGS/FaultActivityMapCA/MapServer",
+          "sha256": "e4dee1a79f9d9e495d0b96d8aff798181080d7bf6d7be90bf212e585de143e3d",
+          "bytes": 10961,
+          "name": "Layers",
+          "serviceItemId": "14079e011e774f9e80b6bec8ce468509",
+          "dataLastEditUTC": null,
+          "timeInfo": null,
+          "capabilities": "Map,Query,Data",
+          "checkedLocalDate": "2026-11-03",
+          "retrievedUTC": "2026-11-03T11:37:54.712435+00:00",
+          "published": "2010",
+          "dateMeaning": "Map edition, not service check or earthquake date"
+        }
+      ]
+    },
+    {
+      "title": "content / metadata — url",
+      "url": "https://gis.conservation.ca.gov/server/rest/services/CGS/FaultActivityMapCA/MapServer/21",
+      "category": "disasters",
+      "uses": [
+        "content / metadata"
+      ],
+      "recordedIn": [
+        "content/disaster-source-manifest.json"
+      ],
+      "records": [
+        {
+          "url": "https://gis.conservation.ca.gov/server/rest/services/CGS/FaultActivityMapCA/MapServer/21",
+          "sha256": "082770e64f3a4e5242a59b978d99f49022fd4868fc59b8c9d460acdcb8a0adef",
+          "bytes": 11426,
+          "name": "Quaternary Faults",
+          "serviceItemId": "14079e011e774f9e80b6bec8ce468509",
+          "dataLastEditUTC": null,
+          "timeInfo": null,
+          "capabilities": "Map,Query,Data",
+          "checkedLocalDate": "2026-11-03",
+          "retrievedUTC": "2026-11-03T11:37:55.019624+00:00",
+          "published": "2010",
+          "dateMeaning": "Map edition, not service check or earthquake date"
+        }
+      ]
+    },
+    {
+      "title": "content / metadata — url",
+      "url": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/2",
+      "category": "disasters",
+      "uses": [
+        "content / metadata"
+      ],
+      "recordedIn": [
+        "content/disaster-source-manifest.json"
+      ],
+      "records": [
+        {
+          "url": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/2",
+          "sha256": "0456a1ab3b5afb8508723d259dbed86e299fae930d7107c7fa110e70133f6b3f",
+          "bytes": 2559,
+          "name": "Fault Classification",
+          "checkedLocalDate": "2026-11-03",
+          "retrievedUTC": "2026-11-03T11:54:15.228760+00:00",
+          "published": "2010",
+          "dateMeaning": "Map edition; tile publication date not supplied",
+          "capabilities": "Map"
+        }
+      ]
+    },
+    {
+      "title": "content / metadata — url",
+      "url": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/legend",
+      "category": "disasters",
+      "uses": [
+        "content / metadata"
+      ],
+      "recordedIn": [
+        "content/disaster-source-manifest.json"
+      ],
+      "records": [
+        {
+          "url": "https://tiles.arcgis.com/tiles/zr3KAIbsRSUyARHG/arcgis/rest/services/QuatFaults_Tiles/MapServer/legend",
+          "sha256": "e20f2df799c410a970597d1d59bd1d273c5aa8caf073fca0dfbf1ac86d83981e",
+          "bytes": 14815,
+          "name": null,
+          "checkedLocalDate": "2026-11-03",
+          "retrievedUTC": "2026-11-03T11:54:15.091790+00:00",
+          "published": "2010",
+          "dateMeaning": "Map edition; tile publication date not supplied",
+          "capabilities": null
         }
       ]
     },
@@ -10900,6 +11488,8 @@
       ],
       "recordedIn": [
         "content/emergency-alerts.json",
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md",
         "phone.js",
         "scripts/import-alert-links.py",
         "scripts/phone_chart.py"
@@ -15181,6 +15771,18 @@
       ]
     },
     {
+      "title": "egis-lacounty.hub.arcgis.com/pages/terms-of-use",
+      "url": "https://egis-lacounty.hub.arcgis.com/pages/terms-of-use",
+      "category": "assets",
+      "uses": [
+        "Supporting link recorded in assets/data/everyday-maps/README.md; role follows its original context."
+      ],
+      "recordedIn": [
+        "assets/data/everyday-maps/README.md"
+      ],
+      "records": []
+    },
+    {
       "title": "fonts — stylesheet",
       "url": "https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&family=Public+Sans:wght@400;500;600&display=swap",
       "category": "assets",
@@ -16124,6 +16726,18 @@
       "records": []
     },
     {
+      "title": "gis-public.sandiegocounty.gov/arcgis/rest/services/OES/EmergencyOutputMap/MapServer",
+      "url": "https://gis-public.sandiegocounty.gov/arcgis/rest/services/OES/EmergencyOutputMap/MapServer",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json"
+      ],
+      "records": []
+    },
+    {
       "title": "gis.fema.gov/arcgis/rest/services/FEMA/DRC/MapServer",
       "url": "https://gis.fema.gov/arcgis/rest/services/FEMA/DRC/MapServer",
       "category": "links",
@@ -16132,6 +16746,20 @@
       ],
       "recordedIn": [
         "docs/resource-directory-research-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "gis.yolocounty.gov/ext/rest/services/Public/Evacuation_Planning/MapServer/2",
+      "url": "https://gis.yolocounty.gov/ext/rest/services/Public/Evacuation_Planning/MapServer/2",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-map-20261103.md",
+        "scripts/import-evacuation-routes.py"
       ],
       "records": []
     },
@@ -16174,6 +16802,31 @@
       "records": []
     },
     {
+      "title": "lacounty.gov/2026/06/09/la-county-encourages-residents-visitors-and-fifa-world-cup-26-attendees-to-sign-up-for-emergency-alerts-and-notifications/",
+      "url": "https://lacounty.gov/2026/06/09/la-county-encourages-residents-visitors-and-fifa-world-cup-26-attendees-to-sign-up-for-emergency-alerts-and-notifications/",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json"
+      ],
+      "records": []
+    },
+    {
+      "title": "lacounty.gov/emergency/",
+      "url": "https://lacounty.gov/emergency/",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
+      ],
+      "records": []
+    },
+    {
       "title": "leafletjs.com",
       "url": "https://leafletjs.com",
       "category": "links",
@@ -16183,6 +16836,18 @@
       "recordedIn": [
         "phone.js",
         "resource-map.js"
+      ],
+      "records": []
+    },
+    {
+      "title": "mailchi.mp/listoscalifornia/listos-california-2024-printed-materials-policy-and-ordering-procedure",
+      "url": "https://mailchi.mp/listoscalifornia/listos-california-2024-printed-materials-policy-and-ordering-procedure",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in docs/outreach-buyers-and-income-findings-20261103.md; role follows its original context."
+      ],
+      "recordedIn": [
+        "docs/outreach-buyers-and-income-findings-20261103.md"
       ],
       "records": []
     },
@@ -16199,6 +16864,30 @@
       "records": []
     },
     {
+      "title": "protect.genasys.com/search",
+      "url": "https://protect.genasys.com/search",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json"
+      ],
+      "records": []
+    },
+    {
+      "title": "publicstrategies.org/institute-for-public-strategies-awarded-listos/",
+      "url": "https://publicstrategies.org/institute-for-public-strategies-awarded-listos/",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in docs/outreach-buyers-and-income-findings-20261103.md; role follows its original context."
+      ],
+      "recordedIn": [
+        "docs/outreach-buyers-and-income-findings-20261103.md"
+      ],
+      "records": []
+    },
+    {
       "title": "register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/279057/full-print",
       "url": "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/279057/full-print",
       "category": "links",
@@ -16208,6 +16897,19 @@
       "recordedIn": [
         "docs/audience-and-funding-research-plan-20261103.md",
         "docs/comparable-websites-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "roads.dot.ca.gov/",
+      "url": "https://roads.dot.ca.gov/",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
       ],
       "records": []
     },
@@ -16332,6 +17034,31 @@
       "records": []
     },
     {
+      "title": "www.alertsandiego.org/en-us/preparedness/maps.html",
+      "url": "https://www.alertsandiego.org/en-us/preparedness/maps.html",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.arcgis.com/apps/instant/basic/index.html",
+      "url": "https://www.arcgis.com/apps/instant/basic/index.html?appid=6cc849e5b689403792acb4cfec90551b",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json"
+      ],
+      "records": []
+    },
+    {
       "title": "www.caloes.ca.gov/office-of-the-director/policy-administration/finance-administration/grants-management/community-resiliency-listos-grants/listos-california-grant-program/",
       "url": "https://www.caloes.ca.gov/office-of-the-director/policy-administration/finance-administration/grants-management/community-resiliency-listos-grants/listos-california-grant-program/",
       "category": "links",
@@ -16344,6 +17071,18 @@
       "records": []
     },
     {
+      "title": "www.caloes.ca.gov/wp-content/uploads/Grants/Documents/CFO/FY25-Listos-Regional-SOUTHERN-LL-FINAL.pdf",
+      "url": "https://www.caloes.ca.gov/wp-content/uploads/Grants/Documents/CFO/FY25-Listos-Regional-SOUTHERN-LL-FINAL.pdf",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in docs/outreach-buyers-and-income-findings-20261103.md; role follows its original context."
+      ],
+      "recordedIn": [
+        "docs/outreach-buyers-and-income-findings-20261103.md"
+      ],
+      "records": []
+    },
+    {
       "title": "www.citizensadvice.org.uk/about-us/information/all-our-impact/",
       "url": "https://www.citizensadvice.org.uk/about-us/information/all-our-impact/",
       "category": "links",
@@ -16352,6 +17091,19 @@
       ],
       "recordedIn": [
         "docs/comparable-websites-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.cityofwestsacramento.org/residents/evacuation-routes",
+      "url": "https://www.cityofwestsacramento.org/residents/evacuation-routes",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
       ],
       "records": []
     },
@@ -16393,6 +17145,19 @@
       "records": []
     },
     {
+      "title": "www.humboldtgov.org/3219/Evacuation-Mapping",
+      "url": "https://www.humboldtgov.org/3219/Evacuation-Mapping",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
+      ],
+      "records": []
+    },
+    {
       "title": "www.listoscalifornia.org/impact-initiatives/",
       "url": "https://www.listoscalifornia.org/impact-initiatives/",
       "category": "links",
@@ -16402,6 +17167,18 @@
       "recordedIn": [
         "docs/audience-and-funding-research-plan-20261103.md",
         "docs/comparable-websites-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.listoscalifornia.org/resources/",
+      "url": "https://www.listoscalifornia.org/resources/",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in docs/outreach-buyers-and-income-findings-20261103.md; role follows its original context."
+      ],
+      "recordedIn": [
+        "docs/outreach-buyers-and-income-findings-20261103.md"
       ],
       "records": []
     },
@@ -16419,14 +17196,14 @@
       "records": []
     },
     {
-      "title": "www.openstreetmap.org/copyright",
-      "url": "https://www.openstreetmap.org/copyright",
+      "title": "www.openstreetmap.org/",
+      "url": "https://www.openstreetmap.org/",
       "category": "links",
       "uses": [
-        "Supporting link recorded in resource-map.js; role follows its original context."
+        "Supporting link recorded in scripts/project-everyday-services.py; role follows its original context."
       ],
       "recordedIn": [
-        "resource-map.js"
+        "scripts/project-everyday-services.py"
       ],
       "records": []
     },
@@ -16453,6 +17230,44 @@
         "resource-booklet.js",
         "resource-map.js",
         "scripts/resource_map.py"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.reddit.com/r/{branch[",
+      "url": "https://www.reddit.com/r/{branch[",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in scripts/landing.py; role follows its original context."
+      ],
+      "recordedIn": [
+        "scripts/landing.py"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.santacruzca.gov/Services/Public-and-Environmental-Safety/Emergency-Management",
+      "url": "https://www.santacruzca.gov/Services/Public-and-Environmental-Safety/Emergency-Management",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.santacruzcountyca.gov/OR3/Response/Evacuations.aspx",
+      "url": "https://www.santacruzcountyca.gov/OR3/Response/Evacuations.aspx",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
       ],
       "records": []
     },
@@ -16493,6 +17308,19 @@
       "records": []
     },
     {
+      "title": "www.smcgov.org/dem/genasys-zonehaven",
+      "url": "https://www.smcgov.org/dem/genasys-zonehaven",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
+      ],
+      "records": []
+    },
+    {
       "title": "www.tpg.com/news-and-insights/tpg-partners-with-findhelp-to-expand-access-to-essential-services-for-underserved-populations",
       "url": "https://www.tpg.com/news-and-insights/tpg-partners-with-findhelp-to-expand-access-to-essential-services-for-underserved-populations",
       "category": "links",
@@ -16527,6 +17355,45 @@
       "recordedIn": [
         "docs/audience-and-funding-research-plan-20261103.md",
         "docs/comparable-websites-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.weather.gov/safety/flood-during",
+      "url": "https://www.weather.gov/safety/flood-during",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.weather.gov/safety/tsunami-before",
+      "url": "https://www.weather.gov/safety/tsunami-before",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
+      ],
+      "records": []
+    },
+    {
+      "title": "www.yolocounty.gov/government/general-government-departments/office-of-emergency-services/emergency-preparedness-resources/evacuation",
+      "url": "https://www.yolocounty.gov/government/general-government-departments/office-of-emergency-services/emergency-preparedness-resources/evacuation",
+      "category": "links",
+      "uses": [
+        "Supporting link recorded in content/evacuation.json; role follows its original context."
+      ],
+      "recordedIn": [
+        "content/evacuation.json",
+        "docs/evacuation-resources-20261103.md"
       ],
       "records": []
     },

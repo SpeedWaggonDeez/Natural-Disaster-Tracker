@@ -29,12 +29,23 @@
   if(['flood','wildfire','heat','cold','storms','volcano'].includes(event))ids.push('poison');
   ids.push('disaster-distress');return [...new Set(ids)];
  }
+ function evacuationPlan(place,source){
+  const data=config.evacuation;
+  if(!data)return null;
+  const local=place?[...(data.cities[place.key]||[]),...(data.counties[place.county]||[])]:[];
+  const get=id=>({...data.sources[id],id,sourceRef:source(data.sources[id])});
+  return {checked:data.checked,localAvailable:local.length>0,links:[...new Set([...local,...data.shared])].map(get),
+   general:get('general-guidance'),flood:get('flood-guidance'),tsunami:get('tsunami-guidance'),tsunamiMap:get('tsunami-maps')};
+ }
  async function model(key){
   const place=location(key),directory=place&&await window.FerdantResourceMap.directory(key),items=directory?.items||[],sources=[],bySource=new Map();
   function source(s){const id=[s.url,s.title,s.checked,s.published].join('|');if(!bySource.has(id)){bySource.set(id,sources.length+1);sources.push({...s,id:sources.length+1});}return bySource.get(id);}
   function physical(f,issue){const s=config.sources[f.source],outside=place?.city&&!f.within?(f.servesCounty?'Serves '+places.counties[place.county]+' County; office outside city.':'Outside city / '+(places.counties[f.county]||'nearby')+' County / '+(f.km<10?f.km.toFixed(1):Math.round(f.km))+' km straight-line.') : '';
    return {issue,title:f.name,detail:f.address+', '+f.city+'. '+outside,access:f.visit?.hours?'Regular hours: '+f.visit.hours:'Hours and intake not confirmed; check with the provider.',kind:f.kind,url:f.url||s.url,source:source(s),physicalId:f.id};}
   function referral(issue,title,detail,url,kind='support'){return {issue,title,detail,access:'Referral link; confirm a visit first.',kind,url,source:source({title,url,checked:null,published:url==='https://www.news.caloes.ca.gov/cooling-centers-and-resources-3/'?'2026-03':null}),referral:true};}
+  const evacuation=evacuationPlan(place,source);
+  const evacuationMap=await window.FerdantResourceMap.routeMap?.(key)||null;
+  if(evacuationMap)evacuationMap.sourceRef=source({title:evacuationMap.publisher+' evacuation planning roads',url:evacuationMap.source,checked:evacuationMap.checked,published:null});
   const events=config.disasters.plans.map(p=>{
    const policy=config.resourcePlans[p.id],cards=[],used=new Set();
    function pick(kinds,issue){const f=kinds.map(kind=>items.find(f=>!used.has(f.id)&&(f.categories||[f.kind]).includes(kind))).find(Boolean);if(f){used.add(f.id);cards.push(physical(f,issue));}return Boolean(f);}
@@ -46,12 +57,12 @@
    if(policy.liveShelters)cards.push(referral('I need a disaster shelter','Check current shelter listings','Red Cross open-shelter locator, all incidents. No current opening, safe access or available bed is saved in this file.','https://www.redcross.org/get-help/disaster-relief-and-recovery-services/find-an-open-shelter.html','shelter'));
    if(['heat','cold'].includes(p.id))cards.sort((a,b)=>Number(['cooling','warming'].includes(b.kind))-Number(['cooling','warming'].includes(a.kind)));
    else if(policy.default==='information'){const order=['library','legal','utility','senior-disability','transport','food','supplies','housing','support','clinic','hospital'];cards.sort((a,b)=>order.indexOf(a.kind)-order.indexOf(b.kind));}
-   return {...p,artTitle:titles[p.id],phase:policy.phase,cards,phones:contactIds(place,p.id).map(id=>({id,...phones.contacts[id],sourceRef:source({...phones.sources[phones.contacts[id].source],checked:phones.checked})})),guidanceRef:source({title:p.label+' official guidance',...p.guidance})};
+   return {...p,evacuation:config.evacuation?.events[p.id]||null,artTitle:titles[p.id],phase:policy.phase,cards,phones:contactIds(place,p.id).map(id=>({id,...phones.contacts[id],sourceRef:source({...phones.sources[phones.contacts[id].source],checked:phones.checked})})),guidanceRef:source({title:p.label+' official guidance',...p.guidance})};
   });
   const ids=[...new Set([...phones.statewide,...(place?phones.countyContacts[place.county]||[]:[]),...(place?phones.cityContacts[place.key]||[]:[])])];
   const appendix=ids.map(id=>({id,...phones.contacts[id],sourceRef:source({...phones.sources[phones.contacts[id].source],checked:phones.checked})}));
   const searches=config.resourceSearch.groups.map(group=>({...group,resources:group.sources.map(id=>{const s=config.resourceSearch.sources[id];return {...s,sourceRef:source(s)};})}));
-  return {place,events,sources,appendix,searches,regionalAvailable:directory?.regionalAvailable??false,geometryAvailable:directory?.geometryAvailable??false};
+  return {place,events,sources,appendix,evacuation,evacuationMap,searches,regionalAvailable:directory?.regionalAvailable??false,geometryAvailable:directory?.geometryAvailable??false};
  }
  function sourceDocument(m){
   const name=m.place?.name||'California',stem='ferdant-'+slug(name)+'-resource-book-'+config.serviceChecked;
@@ -61,8 +72,9 @@
    'The numbered references [S1], [S2], etc. match this city and edition of the PDF. Guidance check dates and publisher dates appear with each source below.',
    'Check dates are not publication dates. Library outlets are from IMLS FY2024, published June 2026. Clinics are the checked HRSA permanent-site directory.',
    'Hours, admission and emergency use need confirmation. Specialty service coverage is incomplete. Distances are straight-line from an approximate city center, not route lengths. Official online referrals were not verified as local pickup sites.',
-   'No private notes, current map filter, live alerts or shelter status enter these files. Links need internet; calls and texts need phone service.','',
+   'No private notes, current map filter, live alerts or shelter status enter these files. Links need internet; calls and texts need phone service.','Evacuation sources checked: '+(m.evacuation?.checked||'not available')+'. Published planning and zone maps are not incident-assigned routes. No current safe route, order, closure or evacuation destination is saved.','',
    'Additional directory searches need internet. Their results are not imported locations, confirmed openings or available beds.',
+   ...(m.evacuation?['EVACUATION SOURCE REVIEW',...[...m.evacuation.links,m.evacuation.general,m.evacuation.flood,m.evacuation.tsunami,m.evacuation.tsunamiMap].flatMap(s=>['[S'+s.sourceRef+'] '+s.title,'Type: '+s.kind,'Review: '+s.review,...(s.corroborationURL?['Corroborating source: '+s.corroborationURL]:[]),''])]:[]),
    ...m.sources.flatMap(s=>['[S'+s.id+'] '+s.title,s.url,'Checked: '+(s.checked||'referral link; current service not verified'),'Publisher/data date: '+(s.published||'not supplied'),...(s.evidenceURL?['Publisher evidence: '+s.evidenceURL,'Evidence date: '+(s.evidencePublished||'not supplied'),'Coverage: '+s.coverage,'Review limits: '+s.verification]:[]),''])].join('\r\n');
   return {filename:stem+'-sources.txt',pdfFilename:stem+'.pdf',text};
  }
@@ -119,16 +131,51 @@
   text(m.place?places.counties[m.place.county]+' COUNTY / CALIFORNIA':'CALIFORNIA / STATEWIDE EDITION',40,80,532,10,blue,'helvetica','bold');
   const nh=text(name,40,116,520,name.length>28?32:44,ink,'times');text('field notes.',40,124+nh,532,42,ink,'times');
   const introY=136+nh+53;const introHeight=text('Places to turn. Numbers to call. Steps to take.',40,introY,532,14,muted);
+  text('Evacuation map / page 2',40,introY+introHeight+5,532,9,blue);pdf.link(40,introY+introHeight+3,532,18,{pageNumber:2});
   y=introY+introHeight+25;y+=text('Find your event',40,y,532,19,ink,'times')+19;
   const tocTop=y,toc=[];
   for(let i=0;i<m.events.length;i++){const p=m.events[i],x=40+(i%3)*181,top=tocTop+Math.floor(i/3)*54;if(hazardIcons[p.id])pdf.addImage(hazardIcons[p.id],'PNG',x,top,23,23);text(p.label,x+30,top,140,10);toc.push({event:p,x,top});}
   y=tocTop+5*54+14;line(y);y+=14;
   const searchIndexY=y;
-  y+=text('Everyday resources & directory searches start on page 2. Tap here to browse by need, or choose an event above. Related phone charts follow each event.',40,y,532,10,blue)+12;
+  y+=text('Everyday resources & directory searches start on page 3. Tap here to browse by need, or choose an event above. Related phone charts follow each event.',40,y,532,10,blue)+12;
   y+=text('Selected directory locations, not every local program. Ordinary sites may close or restrict intake. No current shelter, cooling/warming activation, capacity, safe route or evacuation destination is saved.',40,y,532,9,muted)+10;
   const coverage=!m.place?'No city selected: statewide referrals only.':!m.regionalAvailable?'Additional county service records are not available in this copy; baseline records and referrals remain.':'Local or clearly labelled nearby directory records. Confirm the current entrance, service and eligibility before travel.';
   y+=text(coverage+' Resources checked '+config.serviceChecked+'; contacts '+phones.checked+'.',40,y,532,9,muted)+8;
   text('Companion sources: '+companion.filename,40,y,532,8,muted);
+  next('Evacuation map');
+  y+=text(name+' evacuation roads',40,y,532,25,ink,'times')+8;
+  if(m.evacuationMap?.features.length){
+   const em=m.evacuationMap;
+   y+=text('County-designated planning roads. Follow current official route instructions; these lines do not confirm a road is open.',40,y,532,10,muted)+14;
+   const box={x:40,y,w:532,h:360},[west,south,east,north]=em.bounds,cos=Math.cos((south+north)/2*Math.PI/180);
+   const scale=Math.min((box.w-24)/((east-west)*cos),(box.h-24)/(north-south));
+   const ox=box.x+(box.w-(east-west)*cos*scale)/2,oy=box.y+(box.h-(north-south)*scale)/2;
+   const project=p=>[ox+(p[0]-west)*cos*scale,oy+(north-p[1])*scale];
+   const stroke=points=>{const xy=points.map(project);if(xy.length>1)pdf.lines(xy.slice(1).map((p,i)=>[p[0]-xy[i][0],p[1]-xy[i][1]]),xy[0][0],xy[0][1],[1,1],'S',false);};
+   pdf.setFillColor('#f2f6f7');pdf.rect(box.x,box.y,box.w,box.h,'F');pdf.saveGraphicsState();pdf.rect(box.x,box.y,box.w,box.h,null);pdf.clip();pdf.discardPath();
+   pdf.setDrawColor('#718392');pdf.setLineWidth(.8);pdf.setLineDashPattern([3,3],0);
+   for(const g of em.boundary)for(const polygon of g.type==='Polygon'?[g.coordinates]:g.coordinates)for(const ring of polygon)stroke(ring);
+   pdf.setDrawColor('#a52b77');pdf.setLineWidth(1.7);pdf.setLineDashPattern([5,3],0);
+   const labels=new Map();
+   for(const f of em.features){for(const segment of f.geometry.type==='LineString'?[f.geometry.coordinates]:f.geometry.coordinates){stroke(segment);const name=String(f.properties.FULLSTREET||'').replace(/ (NB|SB|EB|WB)$/,'');if(!name||/\b(ON|OFF)\b/.test(name))continue;const xy=segment.map(project),length=xy.slice(1).reduce((sum,p,i)=>sum+Math.hypot(p[0]-xy[i][0],p[1]-xy[i][1]),0);if(!labels.has(name)||labels.get(name).length<length)labels.set(name,{name,point:xy[Math.floor(xy.length/2)],length});}}
+   pdf.setLineDashPattern([],0);pdf.restoreGraphicsState();
+   const used=[];pdf.setFont('helvetica','bold');pdf.setFontSize(7);
+   for(const label of [...labels.values()].sort((a,b)=>b.length-a.length)){
+    if(used.length>=12)break;const w=pdf.getTextWidth(label.name)+10,x=label.point[0]-w/2,top=label.point[1]-5;
+    if(x<box.x+5||x+w>box.x+box.w-5||top<box.y+20||top+12>box.y+box.h-24||used.some(r=>x<r.x+r.w+5&&x+w+5>r.x&&top<r.y+17&&top+17>r.y))continue;
+    used.push({x,y:top,w});pdf.setFillColor('#ffffff');pdf.rect(x,top,w,12,'F');text(label.name,x+3,top+1,w-6,7,ink,'helvetica','bold');
+   }
+   text('N',box.x+box.w-22,box.y+9,15,9,ink,'helvetica','bold');
+   const km=(east-west)*cos*111.32>40?10:2,bar=km/111.32*scale;
+   pdf.setDrawColor(ink);pdf.setLineWidth(1);pdf.line(box.x+14,box.y+box.h-15,box.x+14+bar,box.y+box.h-15);text(km+' km',box.x+14,box.y+box.h-30,60,8,ink);
+   y=box.y+box.h+14;pdf.setDrawColor('#a52b77');pdf.setLineWidth(2);pdf.setLineDashPattern([5,3],0);pdf.line(40,y+5,77,y+5);pdf.setLineDashPattern([],0);
+   y+=text('Evacuation planning roads',86,y,486,10,ink,'helvetica','bold')+8;
+   y+=text('Gray dashed line: approximate city/county boundary. Only designated roads are drawn; this is not a full street map. No travel direction or destination is assigned.',40,y,532,9,muted)+10;
+   y+=urlLabel(em.publisher+' / route source [S'+em.sourceRef+']',em.source,40,y,532,9)+7;
+   y+=text('Source checked '+em.checked+'. Publisher edit date not supplied. The same planning map remains available in your saved offline copy.',40,y,532,9,muted)+8;
+  }else{
+   y+=text('No reviewed evacuation-road geometry is available for '+name+' in this edition. A route has not been drawn or guessed. Use the official maps in Evacuation routes & updates and follow current local instructions.',40,y,532,12,muted)+18;
+  }
   next('Everyday resources & directory searches');
   const searchStartPage=page();
   y+=text('More ways to find local help',40,y,532,25,ink,'times')+12;
@@ -148,12 +195,40 @@
    }
    line(y-4);y+=12;
   }
+  let evacuationStartPage=null;
+  if(m.evacuation){
+   next('Evacuation routes & updates');evacuationStartPage=page();
+   y+=text('Know where to check before you leave',40,y,532,24,ink,'times')+12;
+   y+=text('Follow the route and destination given by local officials. A saved planning map or zone boundary does not tell you which streets are open now. This book saves links, not live orders, closures or a safe route.',40,y,532,10)+12;
+   y+=text('Prepare transport, medicines, assistive equipment and pet supplies in advance. If you need extra time, plan early. Never delay an official evacuation instruction to check this book. [S'+m.evacuation.general.sourceRef+']',40,y,532,9,muted)+10;
+   y+=text('Flood, coastal flood, dam or levee failure: never drive or walk through floodwater or pass road barriers. [S'+m.evacuation.flood.sourceRef+']',40,y,532,9,muted)+12;
+   if(!m.evacuation.localAvailable)y+=text('No local route-planning resource has been verified for '+name+' in this edition. Use your county emergency instructions; the statewide links below do not fill that gap.',40,y,532,10,blue)+12;
+   for(const s of m.evacuation.links){
+    pdf.setFont('helvetica','normal');pdf.setFontSize(9);
+    const height=pdf.splitTextToSize(plain(s.description+' '+s.url),508).length*11.34+65;
+    space(height,'Evacuation routes & updates / continued');
+    y+=text(s.title+' [S'+s.sourceRef+']',40,y,532,12,ink,'helvetica','bold')+4;
+    y+=text(s.kind,40,y,532,8,blue)+5;
+    y+=text(s.description,40,y,532,9,muted)+5;
+    y+=urlLabel(s.url,s.url,40,y,532,8)+12;line(y-4);
+   }
+   space(28,'Evacuation routes & updates / continued');y+=text('Links checked '+m.evacuation.checked+'. Current instructions need internet, radio or local officials; saved files do not update.',40,y,532,8,muted)+12;
+  }
   for(const p of m.events){
    currentEvent=p;next();p.startPage=page();if(hazardIcons[p.id])pdf.addImage(hazardIcons[p.id],'PNG',537,67,30,30);
    y+=text(p.artTitle,40,y,480,25,ink,'times')+7;y+=text(p.label+' / '+name,40,y,532,11,blue,'helvetica','bold')+12;
    pdf.setFillColor('#edf3f7');const headHeight=(()=>{pdf.setFont('helvetica','bold');pdf.setFontSize(11);return pdf.splitTextToSize(plain(p.headline),508).length*13.86+20;})();pdf.rect(40,y,532,headHeight,'F');text(p.headline,52,y+9,508,11,ink,'helvetica','bold');y+=headHeight+12;
    for(const s of p.steps)y+=text(s.label+': '+s.text,40,y,532,9.5,ink)+4;
    y+=urlLabel('Official guidance [S'+p.guidanceRef+']',p.guidance.url,40,y,532,9)+10;
+   if(p.evacuation&&evacuationStartPage){
+    const top=y;
+    y+=text('Evacuation routes & updates / page '+evacuationStartPage,40,y,532,10,blue,'helvetica','bold')+8;
+    pdf.link(40,top,532,y-top,{pageNumber:evacuationStartPage});
+    if(p.evacuation==='tsunami'){
+     y+=text('Plan and practice a route to your local tsunami assembly area or a safe place inland or uphill, outside the hazard zone. Plan to go on foot if you can; roads may be damaged or congested. [S'+m.evacuation.tsunami.sourceRef+']',40,y,532,9,muted)+6;
+     y+=urlLabel('Coastal hazard planning maps, not current routes [S'+m.evacuation.tsunamiMap.sourceRef+']',m.evacuation.tsunamiMap.url,40,y,532,9)+10;
+    }
+   }
    y+=text('Choose the help you need',40,y,532,18,ink,'times')+8;
    y+=text(p.phase,40,y,532,9,muted)+9;
    for(let i=0;i<p.cards.length;i+=2){
@@ -177,6 +252,8 @@
   phoneRows(m.appendix,'Local and California-wide help');
   const total=pdf.getNumberOfPages();
   pdf.setPage(1);
+  pdf.outline.add(null,'Evacuation map',{pageNumber:2});
+  if(evacuationStartPage)pdf.outline.add(null,'Evacuation routes & updates',{pageNumber:evacuationStartPage});
   pdf.link(40,searchIndexY,532,30,{pageNumber:searchStartPage});
   pdf.outline.add(null,'Everyday resources & searches',{pageNumber:searchStartPage});
   for(const {event:p,x,top}of toc){pdf.link(x,top,171,45,{pageNumber:p.startPage});pdf.outline.add(null,p.label,{pageNumber:p.startPage});text('p. '+p.startPage,x+30,top+27,140,8,blue);}
